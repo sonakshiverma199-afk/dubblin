@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { AppProvider } from './contexts/AppContext';
 import Layout from './components/Layout';
+import AIChatWidget from './components/AIChatWidget';
 import Dashboard from './pages/Dashboard';
 import AIAssistant from './pages/AIAssistant';
 import ReportAnalyzer from './pages/ReportAnalyzer';
@@ -33,6 +34,8 @@ const App: React.FC = () => {
               <Route path="/settings" element={<Settings />} />
             </Routes>
           </Layout>
+          {/* Floating AI Chat Widget - visible on all pages */}
+          <AIChatWidget />
         </BrowserRouter>
       </AppProvider>
     </ThemeProvider>
