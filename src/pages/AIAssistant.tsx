@@ -251,7 +251,7 @@ const AIAssistant: React.FC = () => {
             <button
               key={key}
               onClick={() => setMode(key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${mode === key ? 'gradient-blush text-white' : ''}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${mode === key ? 'gradient-teal text-white' : ''}`}
               style={mode !== key ? { background: 'var(--accent-light)', color: 'var(--text-secondary)' } : {}}
             >
               {config.label}
@@ -265,7 +265,7 @@ const AIAssistant: React.FC = () => {
             <button
               key={key}
               onClick={() => setLang(key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${lang === key ? 'gradient-blush text-white' : ''}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${lang === key ? 'gradient-teal text-white' : ''}`}
               style={lang !== key ? { background: 'var(--accent-light)', color: 'var(--text-secondary)' } : {}}
             >
               {config.flag} {config.label}
@@ -300,7 +300,7 @@ const AIAssistant: React.FC = () => {
         <div className="space-y-4">
           {messages.map(msg => (
             <div key={msg.id} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`max-w-[80%] p-4 rounded-2xl ${msg.role === 'user' ? 'gradient-blush text-white' : ''}`}
+              <div className={`max-w-[80%] p-4 rounded-2xl ${msg.role === 'user' ? 'gradient-teal text-white' : ''}`}
                 style={msg.role !== 'user' ? { background: 'var(--bg-secondary)', color: 'var(--text-primary)' } : {}}>
                 <div className="text-sm whitespace-pre-wrap">{msg.content}</div>
                 {msg.isStreaming && (

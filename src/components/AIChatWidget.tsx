@@ -230,8 +230,8 @@ const AIChatWidget: React.FC = () => {
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all group"
             style={{
-              background: 'linear-gradient(135deg, #ff6b8a 0%, #ff8fab 100%)',
-              boxShadow: '0 8px 32px rgba(255, 107, 138, 0.4)',
+              background: 'linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%)',
+              boxShadow: '0 8px 32px rgba(20, 184, 166, 0.4)',
             }}
             aria-label="Open AI Chat"
           >
@@ -259,7 +259,7 @@ const AIChatWidget: React.FC = () => {
             style={{
               background: 'var(--bg-card)',
               border: '1px solid var(--border-color)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 107, 138, 0.1)',
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(20, 184, 166, 0.1)',
             }}
           >
             {/* Chat Header */}
@@ -317,7 +317,7 @@ const AIChatWidget: React.FC = () => {
                   <div className={`max-w-[85%] flex gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                     {/* Avatar */}
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 ${
-                      msg.role === 'user' ? 'gradient-rose' : 'gradient-blush'
+                      msg.role === 'user' ? 'gradient-navy' : 'gradient-teal'
                     }`}>
                       {msg.role === 'user' ? (
                         <User className="w-3 h-3 text-white" />
@@ -332,7 +332,7 @@ const AIChatWidget: React.FC = () => {
                         : 'rounded-tl-sm'
                     }`}
                       style={msg.role === 'user'
-                        ? { background: 'linear-gradient(135deg, #ff6b8a, #ff8fab)' }
+                        ? { background: 'linear-gradient(135deg, #14b8a6, #0ea5e9)' }
                         : { background: 'var(--bg-secondary)', color: 'var(--text-primary)' }
                       }
                     >
@@ -413,7 +413,7 @@ const AIChatWidget: React.FC = () => {
                 onClick={sendMessage}
                 disabled={!input.trim() || isLoading || backendAvailable === false}
                 className="w-9 h-9 rounded-xl flex items-center justify-center transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #ff6b8a, #ff8fab)' }}
+                style={{ background: 'linear-gradient(135deg, #14b8a6, #0ea5e9)' }}
               >
                 {isLoading ? (
                   <Loader2 className="w-4 h-4 text-white animate-spin" />

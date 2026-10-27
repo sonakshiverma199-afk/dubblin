@@ -133,9 +133,9 @@ const Settings: React.FC = () => {
           <h3 className="font-semibold" style={{ color: 'var(--text-primary)' }}>Theme & Appearance</h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { key: 'light' as const, icon: Sun, label: 'Light Mode', desc: 'Warm cream & blush pink', colors: ['#fef9ef', '#ff8fab'] },
-              { key: 'dark' as const, icon: Moon, label: 'Dark Mode', desc: 'Charcoal & burgundy', colors: ['#1a1a22', '#a84060'] },
-              { key: 'system' as const, icon: Monitor, label: 'System', desc: 'Follow device settings', colors: ['#fef9ef', '#1a1a22'] },
+              { key: 'light' as const, icon: Sun, label: 'Light Mode', desc: 'White, teal & sky blue', colors: ['#ffffff', '#14b8a6'] },
+              { key: 'dark' as const, icon: Moon, label: 'Dark Mode', desc: 'Navy & deep teal', colors: ['#0f172a', '#0d9488'] },
+              { key: 'system' as const, icon: Monitor, label: 'System', desc: 'Follow device settings', colors: ['#ffffff', '#0f172a'] },
             ].map(t => (
               <button key={t.key} onClick={() => setTheme(t.key)}
                 className={`p-4 rounded-2xl text-left transition-all border-2 ${theme === t.key ? 'border-blush-400 scale-[1.02]' : 'border-transparent'}`}

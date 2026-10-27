@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useApp } from '../contexts/AppContext';
+import RobotMascot from './RobotMascot';
 import {
   LayoutDashboard, MessageCircle, FileText, Shield, Pill, Clock,
   Calendar, Stethoscope, Phone, Settings, Sun, Moon, Monitor,
-  Menu, X, Heart, Sparkles
+  Menu, X, Sparkles
 } from 'lucide-react';
 
 const navItems = [
@@ -27,13 +28,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { theme, setTheme } = useTheme();
   const { user } = useApp();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [themeMenuOpen, setThemeMenuOpen] = useState(false);
 
   const cycleThemes = () => {
     const order: ('light' | 'dark' | 'system')[] = ['light', 'dark', 'system'];
     const idx = order.indexOf(theme);
     setTheme(order[(idx + 1) % 3]);
-    setThemeMenuOpen(false);
   };
 
   return (
@@ -41,14 +40,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Sidebar */}
       <aside className={`sidebar w-64 h-full flex flex-col p-4 ${sidebarOpen ? 'open' : ''}`}
         style={{ background: 'var(--bg-sidebar)' }}>
-        {/* Logo */}
-        <div className="flex items-center gap-3 mb-8 px-2">
-          <div className="w-10 h-10 rounded-xl gradient-blush flex items-center justify-center">
-            <Heart className="w-5 h-5 text-white" fill="white" />
-          </div>
+        {/* Logo with Robot */}
+        <div className="flex items-center gap-3 mb-6 px-2">
+          <RobotMascot size={40} animate={false} mood="happy" />
           <div>
-            <h1 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>SheCare</h1>
-            <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Your Health Companion 💗</p>
+            <h1 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>MediCare</h1>
+            <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Your Health Companion</p>
           </div>
         </div>
 
@@ -78,15 +75,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             style={{ background: 'var(--accent-light)', color: 'var(--text-primary)' }}
           >
             {theme === 'light' && <Sun className="w-5 h-5 text-amber-500" />}
-            {theme === 'dark' && <Moon className="w-5 h-5 text-lavender-400" />}
-            {theme === 'system' && <Monitor className="w-5 h-5 text-blush-500" />}
+            {theme === 'dark' && <Moon className="w-5 h-5 text-sky-400" />}
+            {theme === 'system' && <Monitor className="w-5 h-5 text-teal-500" />}
             <span className="text-sm font-medium capitalize">{theme} Mode</span>
           </button>
         </div>
 
         {/* User */}
         <div className="mt-4 p-3 rounded-xl flex items-center gap-3" style={{ background: 'var(--accent-light)' }}>
-          <div className="w-9 h-9 rounded-full gradient-rose flex items-center justify-center text-white font-bold text-sm">
+          <div className="w-9 h-9 rounded-full gradient-teal flex items-center justify-center text-white font-bold text-sm">
             {user.name.charAt(0)}
           </div>
           <div className="flex-1 min-w-0">
@@ -105,7 +102,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-blush-500" />
+            <Sparkles className="w-5 h-5 text-teal-500" />
             <h2 className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
               {navItems.find(n => n.path === location.pathname)?.label || 'Dashboard'}
             </h2>
